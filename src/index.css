@@ -1,0 +1,107 @@
+:root {
+  /* Сепия-винтаж палитра */
+  --bg-page: #f5ecd9;
+  --bg-card: #fdf6e3;
+  --bg-dark: #3b2a1a;
+  --ink: #2b1c0d;
+  --ink-soft: #6b4226;
+  --ink-faint: #8b6b48;
+  --accent: #a87132;
+  --accent-strong: #8a4f1c;
+  --accent-soft: #d6b785;
+  --line: #c4a87f;
+  --line-soft: #e3d3ad;
+  --shadow-sm: 0 1px 2px rgba(60, 40, 20, 0.12);
+  --shadow-md: 0 4px 16px rgba(60, 40, 20, 0.18);
+  --shadow-lg: 0 12px 40px rgba(60, 40, 20, 0.28);
+
+  --serif-display: 'IM Fell English', 'Garamond', 'Times New Roman', serif;
+  --serif-body: 'EB Garamond', 'Garamond', Georgia, serif;
+
+  /* Цвета карт-вагонов TTR */
+  --car-purple: #8b3e8d;
+  --car-white: #f5f0e6;
+  --car-blue: #2e6dbf;
+  --car-yellow: #e8b820;
+  --car-orange: #e2792f;
+  --car-black: #2a2a2a;
+  --car-red: #c63c3c;
+  --car-green: #3f8a3f;
+  --car-gray: #8a8a8a;
+  --car-loco-a: #d8b048;
+  --car-loco-b: #f7e07c;
+
+  --player-red: #b8312f;
+  --player-blue: #2c5fa3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--serif-body);
+  font-size: 17px;
+  line-height: 1.5;
+  background: var(--bg-page);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.app {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.banner {
+  text-align: center;
+  padding: 36px 16px 20px;
+  border-bottom: 1px double var(--line);
+  background: linear-gradient(180deg, #f9f0d8 0%, var(--bg-page) 100%);
+}
+
+.banner h1 {
+  font-family: var(--serif-display);
+  font-size: clamp(28px, 4vw, 46px);
+  margin: 0;
+  letter-spacing: 0.5px;
+  color: var(--ink);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.banner .subtitle {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 6px 0 0;
+  font-size: 15px;
+}
+
+.container {
+  flex: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+.placeholder {
+  text-align: center;
+  color: var(--ink-soft);
+  font-style: italic;
+}
