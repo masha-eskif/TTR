@@ -1,6 +1,7 @@
 import type { CardColor } from '../../game/types';
 import { useGameStore } from '../../hooks/useGameStore';
 import { cardColorName } from '../../i18n/ru';
+import { TrainCardArt } from './TrainCardArt';
 
 export function FaceUpMarket() {
   const state = useGameStore((s) => s.state);
@@ -31,23 +32,27 @@ export function FaceUpMarket() {
               !isMyPhase ||
               (state.phase === 'drawingCards' && c === 'locomotive');
             return (
-              <div
+              <button
                 key={i}
-                className={`market-slot card-chip--${c}${disabled ? ' market-slot--disabled' : ''}`}
+                type="button"
+                className={`market-slot${disabled ? ' market-slot--disabled' : ''}`}
                 onClick={() => drawSlot(i as 0 | 1 | 2 | 3 | 4, c)}
                 title={cardColorName(c)}
+                disabled={disabled}
               >
-                {c === 'locomotive' ? '🚂' : ''}
-              </div>
+                <TrainCardArt color={c} />
+              </button>
             );
           })}
-          <div
+          <button
+            type="button"
             className={`market-deck${!isMyPhase ? ' market-slot--disabled' : ''}`}
             onClick={drawDeck}
             title="Взять вслепую из колоды"
+            disabled={!isMyPhase}
           >
             колода
-          </div>
+          </button>
         </div>
       </div>
     </div>

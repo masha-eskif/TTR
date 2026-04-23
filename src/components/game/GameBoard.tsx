@@ -284,6 +284,74 @@ export function GameBoard() {
           />
         </g>
 
+        {/* Горные хребты на суше */}
+        <g pointerEvents="none">
+          {/* Переиспользуемый шаблон горной гряды через <g> с transform'ами */}
+          {[
+            { x: 420, y: 442, scale: 1.0, label: 'Альпы' },
+            { x: 260, y: 555, scale: 0.85, label: 'Пиренеи' },
+            { x: 665, y: 398, scale: 0.9, label: 'Карпаты' },
+            { x: 1048, y: 478, scale: 0.95, label: 'Кавказ' },
+          ].map((m) => (
+            <g key={m.label} transform={`translate(${m.x} ${m.y}) scale(${m.scale})`}>
+              <path
+                d="M -16 0 L -6 -22 L 4 0 Z"
+                fill="#a68855"
+                stroke="#5a4022"
+                strokeWidth="0.6"
+              />
+              <path
+                d="M -6 -22 L -2 -28 L 2 -22 Z"
+                fill="#fdf6e3"
+                stroke="#8a7454"
+                strokeWidth="0.4"
+              />
+              <path
+                d="M -4 0 L 7 -18 L 17 0 Z"
+                fill="#a68855"
+                stroke="#5a4022"
+                strokeWidth="0.6"
+              />
+              <path
+                d="M 7 -18 L 10 -24 L 13 -18 Z"
+                fill="#fdf6e3"
+                stroke="#8a7454"
+                strokeWidth="0.4"
+              />
+              <path
+                d="M 11 0 L 19 -14 L 27 0 Z"
+                fill="#a68855"
+                stroke="#5a4022"
+                strokeWidth="0.6"
+              />
+            </g>
+          ))}
+        </g>
+
+        {/* Солнышко в левом верхнем углу моря */}
+        <g transform="translate(60 58)" pointerEvents="none">
+          <g stroke="#d49d28" strokeWidth="2" opacity="0.75" strokeLinecap="round">
+            <line x1="0" y1="-30" x2="0" y2="-22" />
+            <line x1="21" y1="-21" x2="16" y2="-16" />
+            <line x1="30" y1="0" x2="22" y2="0" />
+            <line x1="21" y1="21" x2="16" y2="16" />
+            <line x1="0" y1="30" x2="0" y2="22" />
+            <line x1="-21" y1="21" x2="-16" y2="16" />
+            <line x1="-30" y1="0" x2="-22" y2="0" />
+            <line x1="-21" y1="-21" x2="-16" y2="-16" />
+          </g>
+          <circle r="18" fill="#f5cc54" stroke="#d49d28" strokeWidth="1.2" />
+          <circle cx="-5" cy="-3" r="1.4" fill="#6b4226" />
+          <circle cx="5" cy="-3" r="1.4" fill="#6b4226" />
+          <path
+            d="M -5 5 Q 0 10, 5 5"
+            stroke="#6b4226"
+            strokeWidth="1.2"
+            fill="none"
+            strokeLinecap="round"
+          />
+        </g>
+
         {/* Компас-роза в правом-верхнем углу моря (над Москвой/СПб) */}
         <g transform="translate(1100 80)" pointerEvents="none">
           <circle r="32" fill="#efe0bb" opacity="0.9" stroke="#6b4226" strokeWidth="1.2" />

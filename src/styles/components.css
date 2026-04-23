@@ -519,32 +519,29 @@ input[type='checkbox'] {
 
 .hand-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-  gap: 6px;
+  grid-template-columns: repeat(auto-fit, minmax(78px, 1fr));
+  gap: 8px;
+  justify-items: center;
 }
-.hand-chip {
+.hand-card {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 6px 10px;
-  border-radius: 6px;
-  color: #fff;
-  font-weight: 600;
-  cursor: pointer;
-  border: 2px solid transparent;
+  gap: 3px;
   user-select: none;
 }
-.hand-chip--selected {
-  outline: 3px solid var(--accent);
-  outline-offset: 1px;
+.hand-card--disabled {
+  opacity: 0.32;
 }
-.hand-chip--disabled {
-  opacity: 0.35;
-  cursor: not-allowed;
+.hand-card__count {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  font-family: var(--serif-body);
 }
-.hand-chip__count {
-  font-size: 13px;
-  opacity: 0.9;
+.train-card-art {
+  display: block;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
 }
 
 /* ============ Market ============ */
@@ -559,33 +556,34 @@ input[type='checkbox'] {
   flex-wrap: wrap;
 }
 .market-slot {
-  width: 56px;
-  height: 74px;
-  border-radius: 6px;
+  width: 80px;
+  height: 112px;
+  padding: 0;
+  border: none;
+  background: transparent;
   cursor: pointer;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-weight: 700;
-  font-size: 22px;
+  transition: transform 0.12s ease;
+  border-radius: 7px;
+  overflow: hidden;
 }
-.market-slot:hover {
-  transform: translateY(-2px);
+.market-slot:hover:not(:disabled) {
+  transform: translateY(-3px);
   box-shadow: var(--shadow-md);
 }
+.market-slot:disabled,
 .market-slot--disabled {
   opacity: 0.4;
   cursor: not-allowed;
   transform: none !important;
 }
 .market-deck {
-  width: 56px;
-  height: 74px;
-  border-radius: 6px;
-  background: linear-gradient(135deg, #3b2a1a, #6b4226);
+  width: 80px;
+  height: 112px;
+  padding: 0;
   border: 1px solid #2b1c0d;
+  border-radius: 7px;
+  background: linear-gradient(135deg, #3b2a1a, #6b4226);
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
