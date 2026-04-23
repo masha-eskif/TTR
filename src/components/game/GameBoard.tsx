@@ -169,17 +169,155 @@ export function GameBoard() {
             <circle cx="27" cy="19" r="0.4" fill="#c4a87f" opacity="0.5" />
             <circle cx="17" cy="33" r="0.6" fill="#c4a87f" opacity="0.3" />
           </pattern>
+          <pattern id="sea" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+            <rect width="60" height="60" fill="#a8c8d8" />
+            <path
+              d="M 0 20 Q 15 14, 30 20 T 60 20"
+              stroke="#7ea6b8"
+              strokeWidth="0.9"
+              fill="none"
+              opacity="0.55"
+            />
+            <path
+              d="M 0 40 Q 15 46, 30 40 T 60 40"
+              stroke="#7ea6b8"
+              strokeWidth="0.7"
+              fill="none"
+              opacity="0.35"
+            />
+          </pattern>
         </defs>
-        <rect width="1200" height="900" fill="url(#paper)" />
+
+        {/* Sea */}
+        <rect width="1200" height="900" fill="url(#sea)" />
+
+        {/* Land masses. Стилизованный контур Европы (материк, Британия,
+            Скандинавия). Геометрия подобрана так, чтобы все 47 городов
+            с запасом находились на суше; Италия и Сицилия — часть материка
+            без прорисовки Адриатики, это намеренное упрощение. */}
+        <g fill="url(#paper)" stroke="#6b4226" strokeWidth="1.8" strokeLinejoin="round">
+          {/* Main continent */}
+          <path
+            d="
+              M 0 790
+              L 0 480
+              L 55 415
+              L 100 360
+              L 175 345
+              L 260 315
+              L 330 280
+              L 410 240
+              L 500 215
+              L 620 200
+              L 740 195
+              L 775 140
+              L 830 100
+              L 890 95
+              L 955 120
+              L 1005 170
+              L 1055 230
+              L 1100 320
+              L 1145 430
+              L 1180 560
+              L 1180 680
+              L 1125 755
+              L 1035 770
+              L 925 770
+              L 810 775
+              L 720 780
+              L 640 780
+              L 580 790
+              L 510 800
+              L 440 800
+              L 370 780
+              L 320 760
+              L 270 735
+              L 220 720
+              L 180 725
+              L 140 745
+              L 100 765
+              L 50 785
+              Z
+            "
+          />
+
+          {/* Britain */}
+          <path
+            d="
+              M 95 115
+              L 105 75
+              L 150 50
+              L 225 45
+              L 285 75
+              L 315 125
+              L 325 180
+              L 315 235
+              L 285 275
+              L 245 290
+              L 195 290
+              L 150 280
+              L 115 255
+              L 90 210
+              L 85 155
+              Z
+            "
+          />
+
+          {/* Scandinavia */}
+          <path
+            d="
+              M 395 40
+              L 455 25
+              L 520 30
+              L 580 50
+              L 620 85
+              L 645 130
+              L 650 170
+              L 620 190
+              L 560 198
+              L 505 185
+              L 465 160
+              L 430 130
+              L 405 90
+              Z
+            "
+          />
+        </g>
+
+        {/* Компас-роза в правом-верхнем углу моря (над Москвой/СПб) */}
+        <g transform="translate(1100 80)" pointerEvents="none">
+          <circle r="32" fill="#efe0bb" opacity="0.9" stroke="#6b4226" strokeWidth="1.2" />
+          <circle r="20" fill="none" stroke="#6b4226" strokeWidth="0.6" />
+          <path d="M 0 -30 L 4 0 L 0 30 L -4 0 Z" fill="#8a6b48" opacity="0.85" />
+          <path d="M -30 0 L 0 -4 L 30 0 L 0 4 Z" fill="#c4a87f" opacity="0.85" />
+          <text x="0" y="-36" textAnchor="middle" fontSize="11" fill="#6b4226" fontFamily="Georgia, serif" fontWeight="bold">С</text>
+          <text x="0" y="46" textAnchor="middle" fontSize="11" fill="#6b4226" fontFamily="Georgia, serif" fontWeight="bold">Ю</text>
+          <text x="-40" y="4" textAnchor="middle" fontSize="11" fill="#6b4226" fontFamily="Georgia, serif" fontWeight="bold">З</text>
+          <text x="40" y="4" textAnchor="middle" fontSize="11" fill="#6b4226" fontFamily="Georgia, serif" fontWeight="bold">В</text>
+        </g>
+
+        {/* Двойная рамка карты */}
         <rect
           x="5"
           y="5"
           width="1190"
           height="890"
           fill="none"
-          stroke="#8a6b48"
-          strokeWidth="2"
-          rx="6"
+          stroke="#6b4226"
+          strokeWidth="3"
+          rx="8"
+          pointerEvents="none"
+        />
+        <rect
+          x="14"
+          y="14"
+          width="1172"
+          height="872"
+          fill="none"
+          stroke="#6b4226"
+          strokeWidth="0.8"
+          rx="5"
+          pointerEvents="none"
         />
 
         {ctx.routes.map((r) => {

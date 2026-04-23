@@ -355,16 +355,48 @@
         <path d="M 8 85 Q 30 75, 50 82 T 92 78 L 92 85 Z" fill="#8a6b48" opacity="0.5"/>
         <line x1="8" y1="90" x2="92" y2="90" stroke="#3a2818" stroke-width="0.4"/>
         <line x1="8" y1="93" x2="92" y2="93" stroke="#3a2818" stroke-width="0.4"/>
-        <g transform="translate(50 72)">
-          <rect x="10" y="-17" width="18" height="20" rx="1.5" fill="#5a3a22" stroke="#2b1c0d" stroke-width="1.2"/>
-          <rect x="14" y="-14" width="7" height="8" fill="#a8c8d8"/>
-          <rect x="-28" y="-11" width="38" height="14" rx="6" fill="#3a2818" stroke="#2b1c0d" stroke-width="1.2"/>
-          <circle cx="-26" cy="-4" r="6" fill="#7a5a3a" stroke="#2b1c0d" stroke-width="1"/>
-          <rect x="-18" y="-24" width="7" height="14" rx="1" fill="#3a2818" stroke="#2b1c0d" stroke-width="0.8"/>
-          <ellipse cx="-14" cy="-24" rx="7" ry="3" fill="#d9d9d9" opacity="0.9"/>
-          <circle cx="-16" cy="8" r="4.5" fill="#2b1c0d"/>
-          <circle cx="-1" cy="8" r="4.5" fill="#2b1c0d"/>
-          <circle cx="16" cy="8" r="5" fill="#2b1c0d"/>
+        <g transform="translate(50 70)">
+          <!-- Рельс под колёсами -->
+          <line x1="-32" y1="14" x2="32" y2="14" stroke="#3a2818" stroke-width="1"/>
+          <line x1="-32" y1="20" x2="32" y2="20" stroke="#3a2818" stroke-width="0.6"/>
+          <!-- Шатун-соединение -->
+          <rect x="-30" y="7" width="60" height="2.5" fill="#8a3a22"/>
+          <!-- Колёса: 2 маленьких ведущих + 1 большое заднее -->
+          <circle cx="-22" cy="8" r="6" fill="#1a1108" stroke="#2b1c0d" stroke-width="0.6"/>
+          <circle cx="-22" cy="8" r="2.5" fill="#d9534f"/>
+          <line x1="-22" y1="2" x2="-22" y2="14" stroke="#d9534f" stroke-width="0.7"/>
+          <line x1="-28" y1="8" x2="-16" y2="8" stroke="#d9534f" stroke-width="0.7"/>
+          <circle cx="-6" cy="8" r="6" fill="#1a1108" stroke="#2b1c0d" stroke-width="0.6"/>
+          <circle cx="-6" cy="8" r="2.5" fill="#d9534f"/>
+          <line x1="-6" y1="2" x2="-6" y2="14" stroke="#d9534f" stroke-width="0.7"/>
+          <line x1="-12" y1="8" x2="0" y2="8" stroke="#d9534f" stroke-width="0.7"/>
+          <circle cx="14" cy="7" r="8" fill="#1a1108" stroke="#2b1c0d" stroke-width="0.6"/>
+          <circle cx="14" cy="7" r="3.5" fill="#d9534f"/>
+          <line x1="14" y1="-1" x2="14" y2="15" stroke="#d9534f" stroke-width="0.8"/>
+          <line x1="6" y1="7" x2="22" y2="7" stroke="#d9534f" stroke-width="0.8"/>
+          <!-- Корпус-котёл (цилиндр) -->
+          <rect x="-30" y="-6" width="44" height="12" rx="5" fill="#2b2318" stroke="#1a1108" stroke-width="0.8"/>
+          <!-- Передняя круглая «голова» котла с фарой -->
+          <circle cx="-30" cy="0" r="6.5" fill="#3a2f1e" stroke="#1a1108" stroke-width="0.8"/>
+          <circle cx="-33" cy="0" r="2.6" fill="#ffd97a" stroke="#2b1c0d" stroke-width="0.5"/>
+          <!-- Пара декоративных колец на котле -->
+          <rect x="-18" y="-6" width="1.2" height="12" fill="#d9534f" opacity="0.7"/>
+          <rect x="-6" y="-6" width="1.2" height="12" fill="#d9534f" opacity="0.7"/>
+          <!-- Кабина машиниста -->
+          <path d="M 12 -14 L 30 -14 L 30 6 L 12 6 Z" fill="#2b2318" stroke="#1a1108" stroke-width="0.8"/>
+          <path d="M 10 -14 L 32 -14 L 30 -18 L 12 -18 Z" fill="#1a1108"/>
+          <rect x="15" y="-10" width="11" height="8" fill="#a8c8d8" stroke="#1a1108" stroke-width="0.5"/>
+          <!-- Труба -->
+          <rect x="-16" y="-18" width="6" height="14" fill="#2b2318" stroke="#1a1108" stroke-width="0.6"/>
+          <rect x="-18" y="-20" width="10" height="3" fill="#1a1108"/>
+          <!-- Дым (несколько облачков) -->
+          <g opacity="0.9">
+            <circle cx="-12" cy="-24" r="4" fill="#eaeaea"/>
+            <circle cx="-7" cy="-28" r="5" fill="#dcdcdc"/>
+            <circle cx="0" cy="-31" r="5.5" fill="#d0d0d0" opacity="0.8"/>
+            <circle cx="-16" cy="-28" r="3" fill="#eaeaea" opacity="0.85"/>
+            <circle cx="4" cy="-25" r="3.5" fill="#dcdcdc" opacity="0.75"/>
+          </g>
         </g>
         <rect x="2" y="108" width="96" height="30" rx="0" fill="#d4a73a"/>
         <rect x="2" y="108" width="96" height="3" fill="#a47a28"/>
