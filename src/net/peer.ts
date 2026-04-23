@@ -57,13 +57,18 @@ function createSession(code: string, role: 'host' | 'guest'): PeerSession {
   let destroyed = false;
   let connectTimer: ReturnType<typeof setTimeout> | null = null;
 
+  const tag = `[ttr-net/${role}/${code}]`;
+  console.log(`${tag} opening WebSocket ${RELAY_URL}`);
+
   ws.addEventListener('open', () => {
+    console.log(`${tag} WS open, sending join`);
     ws.send(JSON.stringify({ type: 'join', code, role }));
     emit({ type: 'peer-ready', id: role });
 
     connectTimer = setTimeout(() => {
       connectTimer = null;
       if (!ready && !destroyed) {
+        console.warn(`${tag} connect timeout — no peer-connected received`);
         emit({
           type: 'error',
           error: new Error(
@@ -88,8 +93,10 @@ function createSession(code: string, role: 'host' | 'guest'): PeerSession {
 
     switch (env.type) {
       case 'joined':
+        console.log(`${tag} joined room`);
         return;
       case 'peer-connected':
+        console.log(`${tag} peer connected`);
         ready = true;
         if (connectTimer) {
           clearTimeout(connectTimer);
@@ -98,10 +105,12 @@ function createSession(code: string, role: 'host' | 'guest'): PeerSession {
         emit({ type: 'peer-connected' });
         return;
       case 'peer-disconnected':
+        console.log(`${tag} peer disconnected`);
         ready = false;
         emit({ type: 'peer-disconnected' });
         return;
       case 'relay-error':
+        console.warn(`${tag} relay-error:`, env.error);
         emit({
           type: 'error',
           error: new Error(String(env.error ?? 'Ошибка релея')),
@@ -112,8 +121,9 @@ function createSession(code: string, role: 'host' | 'guest'): PeerSession {
     }
   });
 
-  ws.addEventListener('error', () => {
+  ws.addEventListener('error', (ev) => {
     if (destroyed) return;
+    console.error(`${tag} WS error`, ev);
     emit({
       type: 'error',
       error: new Error(
@@ -122,8 +132,9 @@ function createSession(code: string, role: 'host' | 'guest'): PeerSession {
     });
   });
 
-  ws.addEventListener('close', () => {
+  ws.addEventListener('close', (ev) => {
     if (destroyed) return;
+    console.log(`${tag} WS close`, ev.code, ev.reason);
     if (connectTimer) {
       clearTimeout(connectTimer);
       connectTimer = null;
