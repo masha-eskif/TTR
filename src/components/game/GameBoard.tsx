@@ -41,6 +41,7 @@ export function GameBoard() {
     origX: number;
     origY: number;
     dragging: boolean;
+    pointerId: number;
   } | null>(null);
 
   const zoomBy = useCallback((factor: number) => {
@@ -78,21 +79,19 @@ export function GameBoard() {
     };
   }, []);
 
+  // Capture НЕ делаем при pointerdown — иначе clicks на детей (rect маршрута,
+  // circle города) перехватываются SVG, и claim-route модалка не открывается.
+  // Capture ставим только после того как пользователь реально двинулся
+  // > threshold — тогда ясно, что это drag карты, а не клик.
   const onPointerDown = (e: PointerEvent<SVGSVGElement>): void => {
     if (e.button !== 0) return;
-    const svg = svgRef.current;
-    if (!svg) return;
-    try {
-      svg.setPointerCapture(e.pointerId);
-    } catch {
-      /* noop */
-    }
     dragRef.current = {
       startX: e.clientX,
       startY: e.clientY,
       origX: view.panX,
       origY: view.panY,
       dragging: false,
+      pointerId: e.pointerId,
     };
   };
 
@@ -102,7 +101,14 @@ export function GameBoard() {
     const dx = e.clientX - s.startX;
     const dy = e.clientY - s.startY;
     if (!s.dragging && Math.hypot(dx, dy) < DRAG_THRESHOLD_PX) return;
-    s.dragging = true;
+    if (!s.dragging) {
+      s.dragging = true;
+      try {
+        svgRef.current?.setPointerCapture(s.pointerId);
+      } catch {
+        /* noop */
+      }
+    }
     const svg = svgRef.current;
     if (!svg) return;
     const rect = svg.getBoundingClientRect();
@@ -113,10 +119,10 @@ export function GameBoard() {
   };
 
   const onPointerUp = (e: PointerEvent<SVGSVGElement>): void => {
-    const svg = svgRef.current;
-    if (svg) {
+    const s = dragRef.current;
+    if (s?.dragging) {
       try {
-        svg.releasePointerCapture(e.pointerId);
+        svgRef.current?.releasePointerCapture(e.pointerId);
       } catch {
         /* noop */
       }
