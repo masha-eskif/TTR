@@ -87,17 +87,38 @@ export function RouteView({ route, from, to, state, onClick, selected }: Props) 
           {'⚓'.repeat(route.locomotivesRequired)}
         </text>
       )}
-      {/* Tunnel indicator */}
+      {/* Tunnel indicator: two dashed lines hugging the segments + a small
+          mountain icon so the route is obviously a tunnel, not a regular track. */}
       {route.isTunnel && !owner && (
-        <line
-          x1={cityPad}
-          y1={offsetY - segH / 2 - 3}
-          x2={cityPad + usableLen}
-          y2={offsetY - segH / 2 - 3}
-          stroke="#6b4226"
-          strokeWidth={1}
-          strokeDasharray="3 2"
-        />
+        <g pointerEvents="none">
+          <line
+            x1={cityPad}
+            y1={offsetY - segH / 2 - 4}
+            x2={cityPad + usableLen}
+            y2={offsetY - segH / 2 - 4}
+            stroke="#2b1c0d"
+            strokeWidth={1.8}
+            strokeDasharray="5 3"
+          />
+          <line
+            x1={cityPad}
+            y1={offsetY + segH / 2 + 4}
+            x2={cityPad + usableLen}
+            y2={offsetY + segH / 2 + 4}
+            stroke="#2b1c0d"
+            strokeWidth={1.8}
+            strokeDasharray="5 3"
+          />
+          <g transform={`translate(${cityPad + usableLen / 2}, ${offsetY - segH / 2 - 10})`}>
+            <path
+              d="M -7 2 L -3 -4 L 0 -1 L 4 -6 L 8 2 Z"
+              fill="#6b4226"
+              stroke="#2b1c0d"
+              strokeWidth={0.7}
+              strokeLinejoin="round"
+            />
+          </g>
+        </g>
       )}
       {segments}
       {selected && (

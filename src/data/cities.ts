@@ -3,7 +3,8 @@ import type { City } from '../game/types';
 /**
  * 47 городов Ticket to Ride: Europe.
  * Координаты — для SVG viewBox 1200×900 (запад-восток слева-направо, север-юг сверху-вниз).
- * Старые названия (Christiania, Petrograd, Wilno, Angora) — как в оригинальной игре 2008 года.
+ * Старые названия (Christiania, Wilno, Angora) — как в оригинальной игре 2008 года.
+ * ID `petrograd` оставлен ради совместимости с сохранениями; отображается как «Санкт-Петербург».
  */
 export const CITIES: City[] = [
   // Британские острова и северная Франция
@@ -57,7 +58,7 @@ export const CITIES: City[] = [
   { id: 'wilno', name: 'Вильно', x: 700, y: 285 },
 
   // Россия
-  { id: 'petrograd', name: 'Петроград', x: 790, y: 135 },
+  { id: 'petrograd', name: 'Санкт-Петербург', x: 790, y: 135 },
   { id: 'moskva', name: 'Москва', x: 920, y: 255 },
   { id: 'smolensk', name: 'Смоленск', x: 810, y: 290 },
   { id: 'kyiv', name: 'Киев', x: 790, y: 365 },

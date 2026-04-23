@@ -388,11 +388,53 @@ input[type='checkbox'] {
   border-radius: 10px;
   overflow: hidden;
   position: relative;
+  touch-action: none;
 }
 .game-board {
   width: 100%;
   height: 100%;
   display: block;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.map-controls {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: rgba(43, 28, 13, 0.8);
+  padding: 4px;
+  border-radius: 6px;
+  z-index: 2;
+}
+.map-controls__btn {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #c4a87f;
+  background: #efe0bb;
+  color: #2b1c0d;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+}
+.map-controls__btn:hover:not(:disabled) {
+  background: #fdf6e3;
+}
+.map-controls__btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.map-controls__btn--reset {
+  font-size: 16px;
 }
 .game-side {
   display: flex;
@@ -613,7 +655,18 @@ input[type='checkbox'] {
 .svg-city { fill: #fdf6e3; stroke: #3b2a1a; stroke-width: 2; }
 .svg-city:hover { fill: var(--accent-soft); cursor: pointer; }
 .svg-city--selected { fill: var(--accent); }
-.svg-city-label { font-family: var(--serif-body); font-size: 13px; font-weight: 600; fill: var(--ink); text-anchor: middle; pointer-events: none; }
+.svg-city-label {
+  font-family: var(--serif-body);
+  font-size: 13px;
+  font-weight: 600;
+  fill: var(--ink);
+  text-anchor: middle;
+  pointer-events: none;
+  stroke: #efe0bb;
+  stroke-width: 3;
+  stroke-linejoin: round;
+  paint-order: stroke fill;
+}
 
 .svg-route-seg {
   stroke: rgba(0, 0, 0, 0.4);

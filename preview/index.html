@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title>TTR — preview ассетов</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #2b2318; color: #efe0bb; margin: 0; padding: 32px; }
+    h1 { margin-top: 0; }
+    h2 { margin-top: 48px; border-bottom: 1px solid #8a6b48; padding-bottom: 8px; }
+    h3 { margin-top: 32px; }
+    p { max-width: 800px; line-height: 1.5; }
+    .variant { display: inline-block; vertical-align: top; margin: 8px 16px 8px 0; padding: 12px; background: #3a2f1e; border-radius: 8px; border: 1px solid #6b4226; }
+    .variant h4 { margin: 0 0 8px 0; font-size: 14px; color: #e8c893; }
+    .row { display: flex; gap: 16px; flex-wrap: wrap; }
+    .card-demo { display: inline-block; width: 90px; height: 130px; }
+    .board-demo { width: 100%; max-width: 1000px; border: 2px solid #6b4226; border-radius: 6px; display: block; }
+    .inline-demo { display: inline-block; vertical-align: middle; margin: 0 8px; }
+  </style>
+</head>
+<body>
+  <h1>TTR — превью графики</h1>
+  <p>Ниже — варианты, как могут выглядеть фон карты, вагончики, паровоз-джокер и города. Под каждым блоком написан код <code>ВАРИАНТ-N</code>. Ответь мне в чат, например: «фон — ВАРИАНТ-2, вагон — ВАРИАНТ-3, паровоз — ВАРИАНТ-1». Если ни один не нравится — тоже скажи, перерисую.</p>
+
+  <!-- ================================================================ -->
+  <h2>1. Фон карты</h2>
+  <p>Размер как сейчас: 1200×900. На карту поверх ложатся города и маршруты.</p>
+
+  <div class="variant">
+    <h4>ФОН-1 · «пергамент» (текущий, улучшенный)</h4>
+    <svg class="board-demo" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid meet">
+      <defs>
+        <pattern id="paper1" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+          <rect width="60" height="60" fill="#efe0bb"/>
+          <circle cx="10" cy="12" r="0.8" fill="#c4a87f" opacity="0.3"/>
+          <circle cx="38" cy="28" r="0.5" fill="#8a6b48" opacity="0.4"/>
+          <circle cx="25" cy="48" r="0.6" fill="#c4a87f" opacity="0.35"/>
+          <circle cx="52" cy="8" r="0.4" fill="#8a6b48" opacity="0.3"/>
+        </pattern>
+        <radialGradient id="vignette1" cx="50%" cy="50%" r="75%">
+          <stop offset="60%" stop-color="#000" stop-opacity="0"/>
+          <stop offset="100%" stop-color="#3a2816" stop-opacity="0.4"/>
+        </radialGradient>
+      </defs>
+      <rect width="1200" height="900" fill="url(#paper1)"/>
+      <rect width="1200" height="900" fill="url(#vignette1)"/>
+      <!-- Декоративная двойная рамка -->
+      <rect x="10" y="10" width="1180" height="880" fill="none" stroke="#8a6b48" stroke-width="3" rx="8"/>
+      <rect x="20" y="20" width="1160" height="860" fill="none" stroke="#8a6b48" stroke-width="1" rx="5"/>
+      <!-- Компас-роза в углу -->
+      <g transform="translate(100 780)">
+        <circle r="45" fill="none" stroke="#6b4226" stroke-width="1.5"/>
+        <circle r="30" fill="none" stroke="#6b4226" stroke-width="0.8"/>
+        <path d="M 0 -42 L 6 0 L 0 42 L -6 0 Z" fill="#8a6b48" opacity="0.8"/>
+        <path d="M -42 0 L 0 -6 L 42 0 L 0 6 Z" fill="#c4a87f" opacity="0.8"/>
+        <text x="0" y="-50" text-anchor="middle" font-size="14" fill="#6b4226" font-family="Georgia, serif" font-weight="bold">С</text>
+        <text x="0" y="60" text-anchor="middle" font-size="14" fill="#6b4226" font-family="Georgia, serif" font-weight="bold">Ю</text>
+        <text x="-55" y="5" text-anchor="middle" font-size="14" fill="#6b4226" font-family="Georgia, serif" font-weight="bold">З</text>
+        <text x="55" y="5" text-anchor="middle" font-size="14" fill="#6b4226" font-family="Georgia, serif" font-weight="bold">В</text>
+      </g>
+      <!-- Заголовок карты -->
+      <text x="600" y="860" text-anchor="middle" font-size="22" fill="#6b4226" font-family="Georgia, serif" font-style="italic" font-weight="bold">Ticket to Ride · Europe</text>
+    </svg>
+  </div>
+
+  <div class="variant">
+    <h4>ФОН-2 · стилизованная карта Европы (моря голубые, суша бежевая)</h4>
+    <svg class="board-demo" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid meet">
+      <defs>
+        <pattern id="sea2" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+          <rect width="30" height="30" fill="#a8c8d8"/>
+          <path d="M 0 15 Q 7.5 10, 15 15 T 30 15" stroke="#89b0c4" stroke-width="1" fill="none" opacity="0.6"/>
+        </pattern>
+        <pattern id="land2" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+          <rect width="50" height="50" fill="#e8d49a"/>
+          <circle cx="10" cy="15" r="0.6" fill="#a68855" opacity="0.4"/>
+          <circle cx="35" cy="30" r="0.5" fill="#a68855" opacity="0.4"/>
+        </pattern>
+      </defs>
+      <!-- Море на весь фон -->
+      <rect width="1200" height="900" fill="url(#sea2)"/>
+      <!-- Упрощённый силуэт Европы. Один большой path, включающий материк.
+           Очень условный — города сверху всё равно важнее. -->
+      <path d="
+        M 140 100
+        Q 200 80, 300 90
+        L 420 80
+        Q 500 75, 550 110
+        L 620 130
+        Q 700 110, 780 115
+        L 900 140
+        Q 1050 150, 1120 200
+        L 1150 320
+        Q 1140 420, 1100 480
+        L 1050 540
+        Q 1020 600, 960 620
+        L 880 640
+        Q 820 660, 760 650
+        L 700 660
+        Q 680 690, 640 700
+        L 600 720
+        Q 560 680, 520 650
+        L 480 620
+        Q 400 600, 340 560
+        L 300 540
+        Q 280 600, 240 620
+        L 200 640
+        Q 150 620, 120 580
+        L 90 540
+        Q 80 480, 100 420
+        L 120 360
+        Q 140 300, 160 260
+        L 180 220
+        Q 150 180, 130 150
+        Z
+      " fill="url(#land2)" stroke="#6b4226" stroke-width="2"/>
+      <!-- Британские острова отдельно -->
+      <path d="M 170 130 Q 230 120, 250 180 Q 270 230, 260 290 Q 240 320, 210 310 Q 180 300, 170 260 Q 160 200, 170 130 Z"
+            fill="url(#land2)" stroke="#6b4226" stroke-width="2"/>
+      <!-- Скандинавия (дополнительно) -->
+      <path d="M 400 50 Q 500 40, 580 80 Q 620 140, 590 180 Q 540 210, 480 200 Q 430 180, 410 130 Q 395 90, 400 50 Z"
+            fill="url(#land2)" stroke="#6b4226" stroke-width="2"/>
+      <!-- Италия-сапог -->
+      <path d="M 430 440 Q 470 460, 490 520 Q 500 580, 490 640 Q 510 680, 540 680 Q 560 670, 555 640 Q 540 600, 520 560 Q 500 510, 475 460 Z"
+            fill="url(#land2)" stroke="#6b4226" stroke-width="2"/>
+      <!-- Рамка -->
+      <rect x="5" y="5" width="1190" height="890" fill="none" stroke="#6b4226" stroke-width="3" rx="6"/>
+      <text x="600" y="870" text-anchor="middle" font-size="20" fill="#6b4226" font-family="Georgia, serif" font-style="italic">Europa</text>
+    </svg>
+  </div>
+
+  <div class="variant">
+    <h4>ФОН-3 · «старый атлас»: тёмный пергамент + узор по краям</h4>
+    <svg class="board-demo" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid meet">
+      <defs>
+        <radialGradient id="paper3" cx="50%" cy="50%" r="70%">
+          <stop offset="0%" stop-color="#d9b878"/>
+          <stop offset="100%" stop-color="#8c6b3d"/>
+        </radialGradient>
+        <pattern id="noise3" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+          <rect width="8" height="8" fill="transparent"/>
+          <circle cx="2" cy="3" r="0.3" fill="#3a2816" opacity="0.15"/>
+          <circle cx="6" cy="6" r="0.2" fill="#3a2816" opacity="0.2"/>
+        </pattern>
+      </defs>
+      <rect width="1200" height="900" fill="url(#paper3)"/>
+      <rect width="1200" height="900" fill="url(#noise3)"/>
+      <!-- Орнамент-рамка -->
+      <rect x="15" y="15" width="1170" height="870" fill="none" stroke="#3a2816" stroke-width="4"/>
+      <rect x="25" y="25" width="1150" height="850" fill="none" stroke="#3a2816" stroke-width="1"/>
+      <!-- Уголки -->
+      <g fill="#3a2816" opacity="0.7">
+        <path d="M 15 15 L 55 15 L 55 20 L 20 20 L 20 55 L 15 55 Z"/>
+        <path d="M 1185 15 L 1145 15 L 1145 20 L 1180 20 L 1180 55 L 1185 55 Z"/>
+        <path d="M 15 885 L 55 885 L 55 880 L 20 880 L 20 845 L 15 845 Z"/>
+        <path d="M 1185 885 L 1145 885 L 1145 880 L 1180 880 L 1180 845 L 1185 845 Z"/>
+      </g>
+      <text x="600" y="870" text-anchor="middle" font-size="22" fill="#3a2816" font-family="Georgia, serif" font-style="italic" font-weight="bold">· EUROPA · ANNO MMXXVI ·</text>
+    </svg>
+  </div>
+
+  <!-- ================================================================ -->
+  <h2>2. Вагончик на маршруте (цветной сегмент на карте)</h2>
+  <p>Сейчас это прямые прямоугольники. Размер сегмента примерно 28×12 px. Цвет меняется через <code>fill</code>.</p>
+
+  <div class="row">
+    <div class="variant">
+      <h4>ВАГОН-1 · скруглённый прямоугольник с блеском (минимализм)</h4>
+      <svg viewBox="0 0 90 36" width="180" height="72">
+        <rect x="2" y="8" width="86" height="20" rx="3" fill="#d9534f" stroke="#2b1c0d" stroke-width="1"/>
+        <rect x="6" y="11" width="78" height="4" rx="1" fill="#fff" opacity="0.3"/>
+      </svg>
+    </div>
+
+    <div class="variant">
+      <h4>ВАГОН-2 · фигура вагона с окошками и колёсами</h4>
+      <svg viewBox="0 0 90 36" width="180" height="72">
+        <!-- корпус -->
+        <rect x="2" y="8" width="86" height="18" rx="2" fill="#d9534f" stroke="#2b1c0d" stroke-width="1"/>
+        <!-- окошки -->
+        <rect x="10" y="11" width="10" height="7" rx="1" fill="#fff" opacity="0.6" stroke="#2b1c0d" stroke-width="0.5"/>
+        <rect x="26" y="11" width="10" height="7" rx="1" fill="#fff" opacity="0.6" stroke="#2b1c0d" stroke-width="0.5"/>
+        <rect x="42" y="11" width="10" height="7" rx="1" fill="#fff" opacity="0.6" stroke="#2b1c0d" stroke-width="0.5"/>
+        <rect x="58" y="11" width="10" height="7" rx="1" fill="#fff" opacity="0.6" stroke="#2b1c0d" stroke-width="0.5"/>
+        <!-- колёса -->
+        <circle cx="15" cy="28" r="3" fill="#2b1c0d"/>
+        <circle cx="30" cy="28" r="3" fill="#2b1c0d"/>
+        <circle cx="60" cy="28" r="3" fill="#2b1c0d"/>
+        <circle cx="75" cy="28" r="3" fill="#2b1c0d"/>
+      </svg>
+    </div>
+
+    <div class="variant">
+      <h4>ВАГОН-3 · объёмный вагон с бликом сверху</h4>
+      <svg viewBox="0 0 90 36" width="180" height="72">
+        <defs>
+          <linearGradient id="wagon3g" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#fff" stop-opacity="0.4"/>
+            <stop offset="50%" stop-color="#fff" stop-opacity="0"/>
+            <stop offset="100%" stop-color="#000" stop-opacity="0.3"/>
+          </linearGradient>
+        </defs>
+        <rect x="2" y="7" width="86" height="20" rx="4" fill="#d9534f" stroke="#2b1c0d" stroke-width="1"/>
+        <rect x="2" y="7" width="86" height="20" rx="4" fill="url(#wagon3g)"/>
+        <!-- окошки (две полоски) -->
+        <rect x="8" y="11" width="74" height="3" rx="1" fill="#fff" opacity="0.7"/>
+        <rect x="8" y="17" width="74" height="2" rx="1" fill="#2b1c0d" opacity="0.2"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ================================================================ -->
+  <h2>3. Карточка вагончика (то, что у игрока в руке)</h2>
+  <p>Сейчас это цветные плитки с числом. Можно сделать их похожими на настоящие игровые карты.</p>
+
+  <div class="row">
+    <div class="variant">
+      <h4>КАРТА-1 · паровоз-джокер (большой)</h4>
+      <svg class="card-demo" viewBox="0 0 90 130">
+        <rect x="2" y="2" width="86" height="126" rx="8" fill="#efe0bb" stroke="#2b1c0d" stroke-width="2"/>
+        <rect x="6" y="6" width="78" height="118" rx="5" fill="none" stroke="#6b4226" stroke-width="0.5"/>
+        <!-- Паровоз -->
+        <g transform="translate(45 65)">
+          <!-- кабина -->
+          <rect x="8" y="-18" width="18" height="20" rx="2" fill="#5a3a22" stroke="#2b1c0d"/>
+          <rect x="11" y="-14" width="5" height="6" fill="#a8c8d8"/>
+          <!-- котёл -->
+          <rect x="-26" y="-10" width="36" height="14" rx="6" fill="#3a2818" stroke="#2b1c0d"/>
+          <circle cx="-24" cy="-3" r="6" fill="#7a5a3a" stroke="#2b1c0d"/>
+          <!-- труба -->
+          <rect x="-18" y="-22" width="6" height="14" rx="1" fill="#3a2818" stroke="#2b1c0d"/>
+          <ellipse cx="-15" cy="-22" rx="6" ry="3" fill="#d9d9d9" opacity="0.8"/>
+          <!-- колёса -->
+          <circle cx="-18" cy="6" r="4.5" fill="#2b1c0d"/>
+          <circle cx="-4" cy="6" r="4.5" fill="#2b1c0d"/>
+          <circle cx="14" cy="6" r="5.5" fill="#2b1c0d"/>
+          <!-- рельс -->
+          <line x1="-30" y1="11" x2="22" y2="11" stroke="#2b1c0d" stroke-width="1"/>
+        </g>
+        <text x="45" y="115" text-anchor="middle" font-size="10" fill="#6b4226" font-family="Georgia, serif" font-style="italic">Паровоз</text>
+      </svg>
+    </div>
+
+    <div class="variant">
+      <h4>КАРТА-2 · цветная карта-вагон (синий пример)</h4>
+      <svg class="card-demo" viewBox="0 0 90 130">
+        <rect x="2" y="2" width="86" height="126" rx="8" fill="#efe0bb" stroke="#2b1c0d" stroke-width="2"/>
+        <!-- цветная полоска сверху -->
+        <rect x="8" y="8" width="74" height="30" rx="4" fill="#4a90d9" stroke="#2b1c0d" stroke-width="1"/>
+        <!-- вагончик в центре -->
+        <g transform="translate(45 70)">
+          <rect x="-30" y="-8" width="60" height="18" rx="3" fill="#4a90d9" stroke="#2b1c0d" stroke-width="1"/>
+          <rect x="-25" y="-5" width="8" height="6" rx="1" fill="#fff" opacity="0.7"/>
+          <rect x="-13" y="-5" width="8" height="6" rx="1" fill="#fff" opacity="0.7"/>
+          <rect x="-1" y="-5" width="8" height="6" rx="1" fill="#fff" opacity="0.7"/>
+          <rect x="11" y="-5" width="8" height="6" rx="1" fill="#fff" opacity="0.7"/>
+          <circle cx="-20" cy="12" r="3" fill="#2b1c0d"/>
+          <circle cx="-5" cy="12" r="3" fill="#2b1c0d"/>
+          <circle cx="10" cy="12" r="3" fill="#2b1c0d"/>
+          <circle cx="22" cy="12" r="3" fill="#2b1c0d"/>
+        </g>
+        <text x="45" y="115" text-anchor="middle" font-size="10" fill="#6b4226" font-family="Georgia, serif" font-style="italic">Синий вагон</text>
+      </svg>
+    </div>
+
+    <div class="variant">
+      <h4>КАРТА-3 · полноцветная карта (нужный цвет заливает всю карточку)</h4>
+      <svg class="card-demo" viewBox="0 0 90 130">
+        <rect x="2" y="2" width="86" height="126" rx="8" fill="#4a90d9" stroke="#2b1c0d" stroke-width="2"/>
+        <rect x="6" y="6" width="78" height="118" rx="5" fill="none" stroke="#fff" stroke-width="1" opacity="0.6"/>
+        <g transform="translate(45 65)">
+          <rect x="-28" y="-10" width="56" height="20" rx="3" fill="#fff" opacity="0.9" stroke="#2b1c0d" stroke-width="1"/>
+          <rect x="-24" y="-6" width="8" height="6" fill="#4a90d9"/>
+          <rect x="-13" y="-6" width="8" height="6" fill="#4a90d9"/>
+          <rect x="-2" y="-6" width="8" height="6" fill="#4a90d9"/>
+          <rect x="9" y="-6" width="8" height="6" fill="#4a90d9"/>
+          <circle cx="-18" cy="14" r="3.5" fill="#2b1c0d"/>
+          <circle cx="-3" cy="14" r="3.5" fill="#2b1c0d"/>
+          <circle cx="12" cy="14" r="3.5" fill="#2b1c0d"/>
+          <circle cx="22" cy="14" r="3.5" fill="#2b1c0d"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ================================================================ -->
+  <h2>4. Маркер города</h2>
+  <p>Сейчас — простой кружок. Можно сделать красивее.</p>
+
+  <div class="row">
+    <div class="variant">
+      <h4>ГОРОД-1 · кружок с точкой в центре (атлас-стиль)</h4>
+      <svg viewBox="-20 -20 40 40" width="80" height="80">
+        <circle r="8" fill="#fff" stroke="#2b1c0d" stroke-width="2"/>
+        <circle r="3" fill="#2b1c0d"/>
+      </svg>
+    </div>
+
+    <div class="variant">
+      <h4>ГОРОД-2 · звёздочка (для крупных городов/столиц)</h4>
+      <svg viewBox="-20 -20 40 40" width="80" height="80">
+        <path d="M 0 -10 L 3 -3 L 10 -3 L 4.5 2 L 7 10 L 0 5.5 L -7 10 L -4.5 2 L -10 -3 L -3 -3 Z"
+              fill="#d9534f" stroke="#2b1c0d" stroke-width="1.5"/>
+      </svg>
+    </div>
+
+    <div class="variant">
+      <h4>ГОРОД-3 · домик-станция</h4>
+      <svg viewBox="-20 -20 40 40" width="80" height="80">
+        <rect x="-7" y="-2" width="14" height="10" fill="#efe0bb" stroke="#2b1c0d" stroke-width="1.5"/>
+        <path d="M -9 -2 L 0 -10 L 9 -2 Z" fill="#8a3a22" stroke="#2b1c0d" stroke-width="1.5"/>
+        <rect x="-2" y="2" width="4" height="6" fill="#2b1c0d"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ================================================================ -->
+  <h2>5. Пунктир «откуда-куда» (destination-ticket подсветка)</h2>
+  <p>Когда у тебя билет назначения, два города на карте подсвечиваются пунктиром. Вот как это выглядит.</p>
+
+  <div class="variant">
+    <h4>ПУНКТИР-1 · прямая пунктирная с мигающими концами</h4>
+    <svg viewBox="0 0 600 200" width="600" height="200" style="background: #efe0bb; border-radius: 8px;">
+      <line x1="80" y1="100" x2="520" y2="100" stroke="#d9534f" stroke-width="3" stroke-dasharray="8 6" opacity="0.8">
+        <animate attributeName="stroke-dashoffset" from="0" to="-28" dur="1s" repeatCount="indefinite"/>
+      </line>
+      <circle cx="80" cy="100" r="10" fill="#fff" stroke="#d9534f" stroke-width="3"/>
+      <circle cx="80" cy="100" r="16" fill="none" stroke="#d9534f" stroke-width="2" opacity="0.5">
+        <animate attributeName="r" values="10;20;10" dur="1.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.6;0;0.6" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+      <text x="80" y="135" text-anchor="middle" font-size="14" fill="#2b1c0d">Берлин</text>
+
+      <circle cx="520" cy="100" r="10" fill="#fff" stroke="#d9534f" stroke-width="3"/>
+      <circle cx="520" cy="100" r="16" fill="none" stroke="#d9534f" stroke-width="2" opacity="0.5">
+        <animate attributeName="r" values="10;20;10" dur="1.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.6;0;0.6" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+      <text x="520" y="135" text-anchor="middle" font-size="14" fill="#2b1c0d">Рим</text>
+    </svg>
+  </div>
+
+  <div class="variant">
+    <h4>ПУНКТИР-2 · кривая «дуга» (менее навязчиво)</h4>
+    <svg viewBox="0 0 600 200" width="600" height="200" style="background: #efe0bb; border-radius: 8px;">
+      <path d="M 80 100 Q 300 20, 520 100" fill="none" stroke="#6b4226" stroke-width="2" stroke-dasharray="5 5" opacity="0.7"/>
+      <circle cx="80" cy="100" r="8" fill="#d9534f" stroke="#2b1c0d" stroke-width="2"/>
+      <circle cx="520" cy="100" r="8" fill="#d9534f" stroke="#2b1c0d" stroke-width="2"/>
+      <text x="80" y="130" text-anchor="middle" font-size="14" fill="#2b1c0d">Берлин</text>
+      <text x="520" y="130" text-anchor="middle" font-size="14" fill="#2b1c0d">Рим</text>
+    </svg>
+  </div>
+
+  <!-- ================================================================ -->
+  <h2>Что я жду от тебя</h2>
+  <p>Напиши в чат, например так:</p>
+  <pre style="background: #3a2f1e; padding: 12px; border-radius: 6px; color: #e8c893;">
+фон — ФОН-1
+вагон на карте — ВАГОН-2
+карта-джокер — КАРТА-1
+обычная карта — КАРТА-3
+город — ГОРОД-1
+пунктир — ПУНКТИР-1
+  </pre>
+  <p>Если какой-то блок не нравится вообще — пиши «перерисуй», и я сделаю другие варианты.</p>
+</body>
+</html>
