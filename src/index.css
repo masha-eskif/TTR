@@ -42,8 +42,12 @@
 html,
 body,
 #root {
-  height: 100%;
   margin: 0;
+}
+
+html,
+body {
+  min-height: 100vh;
 }
 
 body {
@@ -64,7 +68,7 @@ button {
 }
 
 .app {
-  min-height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }

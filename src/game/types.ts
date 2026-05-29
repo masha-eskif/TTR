@@ -25,6 +25,10 @@ export interface City {
   name: string;
   x: number;
   y: number;
+  // Per-city label nudges (SVG units) relative to the default position below the marker.
+  // Used when adjacent cities would otherwise overlap (e.g. Амстердам/Эссен).
+  labelDx?: number;
+  labelDy?: number;
 }
 
 export interface RouteDef {

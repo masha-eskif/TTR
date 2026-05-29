@@ -23,9 +23,9 @@ export const CITIES: City[] = [
   { id: 'cadiz', name: 'Кадис', x: 90, y: 720 },
 
   // Низкие земли и западная Германия
-  { id: 'amsterdam', name: 'Амстердам', x: 345, y: 295 },
+  { id: 'amsterdam', name: 'Амстердам', x: 345, y: 295, labelDx: -28 },
   { id: 'bruxelles', name: 'Брюссель', x: 320, y: 345 },
-  { id: 'essen', name: 'Эссен', x: 375, y: 295 },
+  { id: 'essen', name: 'Эссен', x: 375, y: 295, labelDx: 28 },
   { id: 'frankfurt', name: 'Франкфурт', x: 395, y: 360 },
 
   // Центральная Европа

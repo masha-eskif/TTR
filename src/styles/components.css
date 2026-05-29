@@ -650,18 +650,28 @@ input[type='checkbox'] {
 }
 
 /* ============ SVG board ============ */
-.svg-city { fill: #fdf6e3; stroke: #3b2a1a; stroke-width: 2; }
-.svg-city:hover { fill: var(--accent-soft); cursor: pointer; }
+.svg-city-outer {
+  fill: #2b1c0d;
+  stroke: #1a0f04;
+  stroke-width: 0.8;
+}
+.svg-city-outer--selected {
+  fill: var(--accent-strong);
+}
+.svg-city { fill: #fdf6e3; stroke: none; }
+.svg-city-group:hover .svg-city { fill: var(--accent-soft); }
+.svg-city-group:hover .svg-city-outer { fill: var(--accent-strong); }
 .svg-city--selected { fill: var(--accent); }
 .svg-city-label {
-  font-family: var(--serif-body);
-  font-size: 13px;
-  font-weight: 600;
+  font-family: var(--serif-display);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   fill: var(--ink);
   text-anchor: middle;
   pointer-events: none;
   stroke: #efe0bb;
-  stroke-width: 3;
+  stroke-width: 3.5;
   stroke-linejoin: round;
   paint-order: stroke fill;
 }
@@ -679,8 +689,9 @@ input[type='checkbox'] {
 .svg-route-glow {
   fill: none;
   stroke: var(--accent);
-  stroke-width: 3;
-  stroke-dasharray: 4 3;
+  stroke-width: 22;
+  stroke-opacity: 0.38;
+  stroke-linecap: round;
   pointer-events: none;
 }
 .svg-route-badge {
