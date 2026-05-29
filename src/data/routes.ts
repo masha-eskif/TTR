@@ -131,6 +131,12 @@ export const ROUTES: RouteDef[] = [
   rFerry('roma', 'palermo', 4, 'gray', 1),
   rFerry('brindisi', 'palermo', 3, 'gray', 1),
   rFerry('brindisi', 'athina', 4, 'gray', 1),
+  // Палермо → Афины: морской тоннель, требует 2 локомотива (кастомный маршрут)
+  r('palermo', 'athina', 4, 'gray', {
+    isFerry: true,
+    isTunnel: true,
+    locomotivesRequired: 2,
+  }),
 
   // === Балканы ===
   r('wien', 'budapest', 1, 'white'),

@@ -504,7 +504,7 @@ export function GameBoard() {
 
         {/* === Land vignette overlay (subtle dark edge on continents) === */}
         <rect
-          width="1200"
+          width="1500"
           height="900"
           fill="url(#landVignette)"
           pointerEvents="none"
@@ -630,7 +630,7 @@ export function GameBoard() {
           <rect
             x="6"
             y="6"
-            width="1188"
+            width="1488"
             height="888"
             fill="none"
             stroke="#3a2510"
@@ -641,7 +641,7 @@ export function GameBoard() {
           <rect
             x="14"
             y="14"
-            width="1172"
+            width="1472"
             height="872"
             fill="none"
             stroke="#a87132"
@@ -652,7 +652,7 @@ export function GameBoard() {
           <rect
             x="22"
             y="22"
-            width="1156"
+            width="1456"
             height="856"
             fill="none"
             stroke="#3a2510"
@@ -662,9 +662,9 @@ export function GameBoard() {
           {/* Corner rosettes */}
           {[
             [22, 22],
-            [1178, 22],
+            [1478, 22],
             [22, 878],
-            [1178, 878],
+            [1478, 878],
           ].map(([cx, cy]) => (
             <g key={`${cx}-${cy}`} transform={`translate(${cx} ${cy})`}>
               <circle r="10" fill="#efe0bb" stroke="#3a2510" strokeWidth="1.5" />
