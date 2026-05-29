@@ -3,7 +3,7 @@ import { useGameStore } from '../../hooks/useGameStore';
 import { CityMarker } from './board/CityMarker';
 import { RouteView } from './board/RouteView';
 
-const VB_W = 1200;
+const VB_W = 1500;
 const VB_H = 900;
 const MIN_ZOOM = 1;
 const MAX_ZOOM = 4;
@@ -342,7 +342,7 @@ export function GameBoard() {
         </defs>
 
         {/* Sea fills entire viewBox */}
-        <rect width="1200" height="900" fill="url(#sea)" />
+        <rect width="1500" height="900" fill="url(#sea)" />
 
         {/* === Landmasses === */}
         <g
@@ -366,11 +366,12 @@ export function GameBoard() {
               Q 660 207, 705 190
               Q 745 175, 780 130
               Q 818 95, 880 105
-              Q 950 122, 1015 165
-              Q 1075 225, 1110 310
-              Q 1140 395, 1148 480
-              Q 1148 545, 1118 585
-              Q 1085 615, 1052 626
+              Q 960 120, 1030 150
+              Q 1110 175, 1185 215
+              Q 1255 265, 1290 345
+              Q 1315 425, 1290 500
+              Q 1255 555, 1185 585
+              Q 1120 608, 1060 624
               Q 1020 645, 982 660
               Q 945 685, 902 700
               Q 850 715, 798 718

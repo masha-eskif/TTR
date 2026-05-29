@@ -8,9 +8,9 @@ const t = (
   isLong = false,
 ): Ticket => ({ id, from, to, points, isLong });
 
-/** 46 коротких + 6 длинных билетов-направлений Ticket to Ride: Europe. */
+/** 52 коротких + 7 длинных билетов-направлений (46+6 каноничных + восточное крыло). */
 export const TICKETS: Ticket[] = [
-  // ===== Короткие билеты (46) =====
+  // ===== Короткие билеты (52) =====
   t('AMS_PAM', 'amsterdam', 'pamplona', 7),
   t('AMS_WIL', 'amsterdam', 'wilno', 12),
   t('ANG_KHA', 'angora', 'kharkov', 10),
@@ -58,11 +58,20 @@ export const TICKETS: Ticket[] = [
   t('SAR_SEV', 'sarajevo', 'sevastopol', 8),
   t('SMO_ROS', 'smolensk', 'rostov', 8),
 
-  // ===== Длинные билеты (6) =====
+  // ----- Поволжье и восток (расширение карты) -----
+  t('KAZ_MOS', 'kazan', 'moskva', 8),
+  t('SAM_MOS', 'samara', 'moskva', 11),
+  t('VOL_KHA', 'volgograd', 'kharkov', 5),
+  t('KAZ_VOL', 'kazan', 'volgograd', 8),
+  t('NN_PET', 'nizhny', 'petrograd', 10),
+  t('SAM_SEV', 'samara', 'sevastopol', 13),
+
+  // ===== Длинные билеты (7) =====
   t('LONG_EDI_ATH', 'edinburgh', 'athina', 21, true),
   t('LONG_LIS_PET', 'lisboa', 'petrograd', 20, true),
   t('LONG_LON_WIE', 'london', 'wien', 18, true),
   t('LONG_BRE_CON', 'brest', 'constantinople', 20, true),
   t('LONG_CAD_STO', 'cadiz', 'stockholm', 21, true),
   t('LONG_BER_SEV', 'berlin', 'sevastopol', 17, true),
+  t('LONG_KAZ_LIS', 'kazan', 'lisboa', 22, true),
 ];

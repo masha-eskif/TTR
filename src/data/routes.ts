@@ -186,4 +186,12 @@ export const ROUTES: RouteDef[] = [
   r('rostov', 'sevastopol', 4, 'gray'),
   rFerry('sevastopol', 'erzurum', 4, 'gray', 2),
   r('sevastopol', 'bucuresti', 4, 'white'),
+
+  // === Поволжье и восток (расширение карты) ===
+  r('moskva', 'nizhny', 3, 'green'),
+  r('nizhny', 'kazan', 3, 'orange'),
+  r('kazan', 'samara', 2, 'yellow'),
+  r('samara', 'volgograd', 4, 'blue'),
+  r('volgograd', 'rostov', 3, 'black'),
+  r('volgograd', 'kharkov', 4, 'gray'),
 ];

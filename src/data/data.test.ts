@@ -5,10 +5,10 @@ import { CITIES, ROUTES, TICKETS, createBoardContext } from './index';
 describe('board data', () => {
   it('createBoardContext does not throw and has the right counts', () => {
     const ctx = createBoardContext();
-    expect(ctx.cities.length).toBe(47);
+    expect(ctx.cities.length).toBe(51);
     expect(ctx.routes.length).toBeGreaterThanOrEqual(60);
-    expect(ctx.shortTicketIds.length).toBe(46);
-    expect(ctx.longTicketIds.length).toBe(6);
+    expect(ctx.shortTicketIds.length).toBe(52);
+    expect(ctx.longTicketIds.length).toBe(7);
   });
 
   it('every city has a unique id and a name', () => {
